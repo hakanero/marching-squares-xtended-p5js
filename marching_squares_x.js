@@ -21,10 +21,14 @@ function setup() {
     moused.push(h);
     field.push(k);
   }
+  tres1slider = createSlider(0,1,tres1,0.05);
+  tres2slider = createSlider(0,1,tres2,0.05);
+  tres1slider.position(10,450);
+  tres2slider.position(10,500);
 }
 
 let tres1 = 0.5;
-let tres2 = 0.493;
+let tres2 = 0.5;
 
 function type(a){
   if(a < tres1){
@@ -75,6 +79,8 @@ let moused = [];
 
 function draw() {
   background(0);
+  tres1 = tres1slider.value();
+  tres2 = tres2slider.value();
   let xoff = 0;
   for (let i = 0; i < cols; i++) {
     xoff += increment;
@@ -133,6 +139,13 @@ function draw() {
       }
     }
   }
+
+  stroke(0,0,255);
+  strokeWeight(rez);
+  text("1st threshold: "+tres1slider.value(),10,20);
+  text("2nd threshold: "+tres2slider.value(),10,40);
+
+
 }
 
 let drawSize = 1;
